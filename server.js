@@ -1,13 +1,13 @@
-var http = require('http');
-var fs = require('fs');
-var rexus = require('rexus');
+const http = require('http');
+const fs = require('fs');
+const rexus = require('./rexus.js');
 
 var options = {
 	key: fs.readFileSync('/etc/letsencrypt/keys/0014_key-certbot.pem'),
 	cert: fs.readFileSync('/etc/letsencrypt/csr/0014_csr-certbot.pem')
 };
 
-var endpoints = rexus.root.getEndpoints();
+var root = rexus.root;
 
 http.createServer(function(req, res) {
 	let requestIP = req.rawHeaders[req.rawHeaders.indexOf('X-Forwarded-For') + 1];
