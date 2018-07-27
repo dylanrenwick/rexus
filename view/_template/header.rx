@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>Rexus Test</title>
+	<style>
+		body, html {
+			margin: 0;
+			font-family: 'Helvetica',arial,sans-serif;
+		}
+
+		.margined {
+			display: block;
+			width: 900px;
+			margin: 0 auto;
+		}
+
+		#wrapper {
+			box-sizing: border-box;
+			padding: 20px;
+		}
+
+		#topbar {
+			height: 40px;
+			width: 100%;
+			background-color: #345678;
+			color: #eee;
+		}
+
+		.navlist {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		.navlist li {
+			display: inline-block;
+			margin: 0;
+		}
+		.navlist li:hover {
+			background-color: rgba(0,0,0,0.2);
+		}
+		.navlist li a {
+			text-align: center;
+			padding: 10px 20px;
+			text-decoration: none;
+			color: #eee;
+			line-height: 20px;
+			height: 20px;
+		}
+		.navlist li.active-nav a {
+			color: #ffa52d;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+<div id='topbar'>
+	<div class='margined'>
+		<ul class='navlist'>
+			<li {% return (this.params.controller === 'index') ? "class='active-nav'" : this.params.controller; }><a href='{% return this.params.rootPath; }'>Home</a></li>
+			<li><a href='{$ return this.params.rootPath; }test/'>Test</a></li>
+		</ul>
+	</div>
+</div>
+<div id='wrapper' class='margined'>

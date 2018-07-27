@@ -1,16 +1,7 @@
-const Endpoint = require('./endpoint.js');
+const App = require('./application.js');
 
 module.exports = {
-	root: createRootEndpoint()
+	App: () => app
 };
 
-function createRootEndpoint() {
-	let endpoint = new Endpoint();
-	endpoint.endpoints = {
-		home: new Endpoint(),
-		user: new Endpoint(),
-		chat: new Endpoint(),
-		login: new Endpoint()
-	};
-	return endpoint;
-}
+const app = new App();
